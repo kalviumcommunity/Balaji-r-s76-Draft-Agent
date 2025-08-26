@@ -560,7 +560,48 @@ class ChainOfThoughtPrompting:
         response = self.model.generate(prompt)
         return response
 
+
+class DynamicPrompting:
+    """
+    Utility class for dynamic prompting to generate LinkedIn posts.
+    """
+
+    def __init__(self, model):
+        """
+        Initialize with a pre-trained language model.
+
+        Args:
+            model: Pre-trained language model (e.g., OpenAI GPT, Hugging Face model).
+        """
+        self.model = model
+
+    def generate_post(self, topic: str, format_type: str, user_preferences: dict) -> str:
+        """
+        Generate a LinkedIn post using dynamic prompting.
+
+        Args:
+            topic: The topic for the post.
+            format_type: The format type (e.g., short, story, carousel).
+            user_preferences: A dictionary of user preferences (e.g., tone, style).
+
+        Returns:
+            Generated post as a string.
+        """
+        tone = user_preferences.get("tone", "professional")
+        style = user_preferences.get("style", "engaging")
+
+        prompt = (
+            f"You are an expert LinkedIn content creator. Generate a {format_type} post about '{topic}'.\n"
+            f"The tone of the post should be {tone}, and the style should be {style}.\n"
+            "Ensure the post is engaging, professional, and follows LinkedIn best practices."
+        )
+
+        # Simulate model response (replace with actual model call in production)
+        response = self.model.generate(prompt)
+        return response
+
 # Example usage (replace 'model' with an actual pre-trained model instance)
-# chain_of_thought = ChainOfThoughtPrompting(model)
-# post = chain_of_thought.generate_post("AI in Marketing", "story")
+# dynamic_prompt = DynamicPrompting(model)
+# user_prefs = {"tone": "conversational", "style": "storytelling"}
+# post = dynamic_prompt.generate_post("AI in Marketing", "story", user_prefs)
 # print(post)
