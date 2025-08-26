@@ -1,0 +1,17 @@
+{
+  "topics": ["product", "engineering", "founder"],
+  "tone": "practical, concise, conversational",
+  "windows": [
+    {"day": "Tue", "hour": 10},
+    {"day": "Thu", "hour": 11}
+  ],
+  "experiment_spread_hours": 2,
+  "manual_mode": true,
+  "openai_api_key": "",
+  "linkedin_api_key": "",
+  "rate_limit": {
+    "requests_per_minute": 10,
+    "backoff_factor": 2,
+    "max_retries": 3
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "sample_1",
+    "title": "3 lessons from building our MVP",
+    "body": "After 6 months of development, here's what I learned:\n\n1. Start with the problem, not the solution\n2. Talk to users early and often\n3. Build the minimum that validates your hypothesis\n\nWhat would you add to this list?",
+    "tags": [
+      "product",
+      "startup",
+      "mvp"
+    ],
+    "published_at": "2025-08-10T10:00:00Z"
+  },
+  {
+    "id": "sample_2",
+    "title": "The engineering mindset that changed everything",
+    "body": "One shift in thinking transformed how our team approaches problems:\n\n\ud83d\udd0d From \"How do we build this?\"\n\u2705 To \"Should we build this?\"\n\nThis simple question saves us weeks of unnecessary work.\n\nWhat questions help you prioritize better?",
+    "tags": [
+      "engineering",
+      "mindset",
+      "productivity"
+    ],
+    "published_at": "2025-08-12T14:00:00Z"
+  }
+]

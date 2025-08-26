@@ -1,140 +1,220 @@
-# LinkedIn Agent — Planner, Drafter, Scheduler, and Analyst
+# LinkedIn AI Agent
 
-A practical, CLI-first LinkedIn agent that uses prompting, RAG, structured output, and function calling to plan weekly content, draft posts grounded in past performance, schedule into evidence-based engagement windows, and learn from analytics while respecting LinkedIn API policies and rate limits.[1][2][3]
+A complete CLI-based LinkedIn content automation system that combines **Prompting**, **RAG (Retrieval-Augmented Generation)**, **Structured Output**, and **Function Calling** to plan, draft, schedule, and analyze LinkedIn content.
 
-## Why this exists
-- Streamlines ideation-to-publish with reproducible workflows and machine-readable outputs.[3][1]
-- Grounds drafts in prior top-performing content via retrieval to avoid repetition and improve relevance.
-- Uses structured JSON artifacts to integrate with dashboards and automations.
-- Encodes safe scheduling and rate-limit-aware operations for compliant usage with LinkedIn’s ecosystem.[2][1]
+## 🚀 Features
 
-## Key concepts encoded
-- Prompting: role/tone-specific templates for hooks, value, and CTAs.
-- RAG: local retrieval over exports of past posts, comments, and notes to generate grounded drafts.
-- Structured output: JSON schemas for posts, schedules, and metrics for predictable pipelines.[4][1]
-- Function calling: modular actions (fetch, draft, schedule, metrics) wired to either approved APIs or manual import/export flows with throttling and backoff guidance.[1][2]
+### 📅 Weekly Content Planner
+- Generates **Now-Next-Later** posting schedules as structured JSON
+- Recommends optimal posting windows based on engagement data
+- Balances immediate needs with experimental content
 
-## Features
-- Content planner: propose a 7‑day plan with Now–Next–Later framing and timing experiments that converge to audience-specific windows.[5][6][7]
-- Drafting assistant: generate grounded posts with hooks, tags, CTA, and source snippets from prior wins.
-- Scheduler: queue drafts into mid‑morning weekday windows as a starting heuristic, then adapt via weekly experiments.[6][7][5]
-- Analytics tracker: import or fetch metrics; update recommendations and reorder plan based on outcomes.
-- Compliance-first mode: operate via approved endpoints or manual flows; avoid scraping and prohibited automation; respect rate limits and resets.[2][1]
+### ✍️ Post Drafter  
+- Uses RAG to find similar previous posts for context
+- Generates structured posts with hooks, value, and CTAs
+- Supports multiple formats: short, story, carousel
+- Grounds content in past performance data
 
-## Getting started
+### ⏰ Smart Scheduler
+- Assigns posts to optimal time windows using engagement best practices
+- Considers historical performance data
+- Prevents scheduling conflicts and validates schedules
 
-### Prerequisites
-- Python 3.9+.
-- Optional: CSV exports of past post performance for local RAG and analytics.
+### 📊 Metrics Ingester
+- Reads post analytics from CSV files
+- Analyzes performance trends by time, format, and topic
+- Updates recommendations based on actual engagement data
 
-### Installation
-- Clone the repo, then:
-- pip install -r requirements.txt
+### 💬 Comment Coach (Framework)
+- Suggests replies for top-performing threads
+- Identifies engagement opportunities
+- Helps build relationships through thoughtful responses
 
-### Quick start
-1) Initialize workspace
-- li init
+## 🏗️ Architecture
 
-2) Plan next week with recommended windows
-- li plan --accept
+```
+linkedin-agent/
+├── cli/              # Command handlers
+│   ├── plan.py       # Weekly planning
+│   ├── draft.py      # Post generation
+│   ├── queue.py      # Scheduling
+│   └── metrics.py    # Analytics
+├── core/             # Business logic
+│   ├── scheduler.py  # Time optimization
+│   ├── prompting.py  # Content generation
+│   ├── retrieval.py  # RAG system
+│   └── schemas.py    # JSON validation
+├── data/             # Persistent storage
+│   ├── posts/        # Historical posts
+│   ├── metrics/      # Performance data
+│   └── schedules/    # Weekly plans
+└── config.json       # Configuration
+```
 
-3) Draft a grounded post
-- li draft "3 lessons from building our MVP" --format story > draft.json
+## 🛠️ Installation
 
-4) Queue the draft
-- li queue draft.json
+```bash
+# Clone and setup
+git clone <repository>
+cd linkedin-agent
 
-5) Metrics ingestion (manual import or API when approved)
-- li metrics --since 7d --import metrics.csv
+# Install dependencies
+pip install -r requirements.txt
 
-6) Update plan based on last week’s performance
-- li plan --suggest --accept
+# Initialize workspace
+python li.py init
+```
 
-## CLI commands
+## 📖 Usage Examples
 
-- li init — set up workspace, config, and folders.
-- li plan [--accept|--suggest] — propose Now–Next–Later weekly plan and recommended time slots based on best-practice windows, then adapt from metrics[5][6][7].
-- li draft "topic" --format short|story|carousel — generate a post grounded in past posts via local retrieval.
-- li queue  — schedule into the next available slot; outputs a schedule JSON.
-- li post --now  — immediate publish (only if compliant with approved APIs); otherwise outputs ready-to-paste content.
-- li metrics --since 7d [--import metrics.csv] — ingest metrics and update the learning store.
-- li replies  — suggest thoughtful, value-adding comment replies to top responses.
+### 1. Generate Weekly Plan
+```bash
+# Create a Now-Next-Later content plan
+python li.py plan --accept
 
-All commands emit JSON artifacts for portability and automation.[4][1]
+# Include performance-based suggestions
+python li.py plan --suggest
 
-## JSON schemas
+# Plan for specific week
+python li.py plan --week-start 2025-08-25
+```
 
-- Post
+### 2. Draft Posts
+```bash
+# Generate a story-format post
+python li.py draft "3 lessons from building our MVP" --format story
+
+# Create a carousel post
+python li.py draft "Product management tips" --format carousel
+
+# Preview without saving
+python li.py draft "Quick engineering insight" --format short --preview
+```
+
+### 3. Queue and Schedule
+```bash
+# Queue draft for optimal time
+python li.py queue draft.json
+
+# Override posting time
+python li.py queue draft.json --time "Thu 14"
+
+# Preview scheduling
+python li.py queue draft.json --preview
+```
+
+### 4. Analyze Performance
+```bash
+# Import metrics from CSV
+python li.py metrics --import metrics.csv
+
+# Show performance summary
+python li.py metrics --since 7d --summary
+
+# Export analysis
+python li.py metrics --export report.json
+```
+
+### 5. Post Content
+```bash
+# Output ready-to-post content
+python li.py post draft.json --now
+
+# Process scheduled posts
+python li.py post --schedule schedule.json
+```
+
+## 📁 Data Formats
+
+### CSV Metrics Format
+```csv
+post_id,impressions,reactions,comments,shares,clicks,published_at
+post_123,1500,120,25,8,45,2025-08-10T10:00:00Z
+post_456,2200,180,40,15,75,2025-08-12T14:00:00Z
+```
+
+### Generated Post Structure
+```json
 {
-  "id": "P1",
-  "title": "Hooked story: MVP lessons",
-  "body": "...",
-  "tags": ["product", "startups"],
-  "assets": [],
-  "cta": "What would you try next?",
+  "id": "post_abc123",
+  "title": "Story: Product Management",
+  "body": "Here's what I learned about product management...",
+  "tags": ["product", "management", "insights"],
+  "cta": "What's your biggest product challenge?",
   "target_window": {"day": "Tue", "hour": 10},
-  "source_snippets": [{"post_id": "old123", "reason": "similar topic"}]
+  "source_snippets": [
+    {"post_id": "similar_post", "reason": "semantic similarity"}
+  ]
 }
+```
 
-- Schedule
+### Weekly Plan Structure
+```json
 {
-  "week_of": "2025-08-11",
-  "slots": [{"post_id": "P1", "day": "Tue", "hour": 10}, {"post_id": "P2", "day": "Thu", "hour": 11}]
+  "week_of": "2025-08-25",
+  "now": [
+    {
+      "topic": "Latest insights on product",
+      "priority": "high",
+      "target_window": {"day": "Tue", "hour": 10}
+    }
+  ],
+  "next": [...],
+  "later": [...]
 }
+```
 
-- Metrics
-{
-  "post_id": "P1",
-  "impressions": 1234,
-  "reactions": 87,
-  "comments": 23,
-  "shares": 5,
-  "clicks": 41,
-  "published_at": "2025-08-12T10:05:00Z"
-}
+## ⚙️ Configuration
 
-Schemas keep outputs predictable and easy to validate or visualize.[1][4]
+Edit `config.json` to customize:
 
-## Planning and posting windows
-
-- Start with weekday work hours, especially mid‑morning and lunch, with a slight bias to Tuesday and Thursday; then personalize via experiments because audiences differ.[7][5][6]
-- Maintain a rolling timing experiment: vary posting hour by ±1–2h for 2 weeks; select winners and prune underperformers.[5][6][7]
-
-## Rate limits, compliance, and safe operation
-
-- Respect LinkedIn’s Terms and program-specific API rules; use only permitted scopes, store only allowed data, and avoid prohibited automation.[2][1]
-- Expect dual app/member rate limits, 429 responses on exceedance, and midnight UTC resets; use throttling, exponential backoff, jitter, and queued jobs to stay within quotas.[1][2]
-- If not in an approved program, run in manual mode: import metrics via CSV, export drafts/schedules as JSON, and publish manually from the CLI output.[2][1]
-
-## Repository structure
-- cli/: command handlers (plan, draft, queue, metrics, replies).
-- core/: prompting, retrieval, scheduling heuristics, analytics.
-- data/: posts/, metrics/, schedules/ (JSON artifacts).
-- docs/: API notes, compliance guide, examples.
-- tests/: unit tests for planners, retrievers, and validators.
-
-## Configuration
-- config.json
+```json
 {
   "topics": ["product", "engineering", "founder"],
   "tone": "practical, concise, conversational",
-  "windows": [{"day": "Tue", "hour": 10}, {"day": "Thu", "hour": 11}],
+  "windows": [
+    {"day": "Tue", "hour": 10},
+    {"day": "Thu", "hour": 11}
+  ],
   "experiment_spread_hours": 2,
   "manual_mode": true
 }
+```
 
-- Set manual_mode to true unless approved API access is configured.[1][2]
+## 🔄 Workflow
 
-## Roadmap
-- Post variants A/B with automatic selection.
-- Comment quality scoring and reply suggestions using simple heuristics.
-- Lightweight dashboard for trends from JSON artifacts.
-- Optional semantic-release style versioning and badges once stabilized.[8][9][10]
+1. **Plan**: `li plan --accept` → Generate weekly content strategy
+2. **Draft**: `li draft "topic"` → Create grounded posts using RAG
+3. **Queue**: `li queue draft.json` → Schedule to optimal windows
+4. **Post**: `li post draft.json --now` → Output for manual posting
+5. **Analyze**: `li metrics --import data.csv` → Learn from performance
 
-## Contributing
-- Open an issue describing the change.
-- Follow semantic versioning for any public API changes; use X.Y.Z and bump versions meaningfully.[10][8]
-- Keep README and docs updated; remove empty sections and avoid broken links for good project hygiene.[11][2][1]
+## 🎯 Key Design Principles
 
-## License
-- See LICENSE in the repository.
+- **Manual-first**: Operates on local data, outputs copy-paste ready content
+- **RAG-grounded**: Every post references similar historical content
+- **Schema-validated**: All outputs comply with defined JSON schemas
+- **Performance-informed**: Recommendations improve based on actual metrics
+- **Modular**: Clean separation between CLI, core logic, and data
+
+## 🔮 Future Enhancements
+
+- Direct LinkedIn API integration (with approved access)
+- Advanced NLP for content optimization
+- A/B testing framework for posting times
+- Automated comment analysis and reply suggestions
+- Visual content generation integration
+
+## 📊 Analytics Features
+
+The system tracks and analyzes:
+- Engagement rates by posting time
+- Content performance by format and topic
+- Optimal posting windows based on actual data
+- Best-performing content for future reference
+
+This creates a learning system that continuously improves recommendations based on real performance data.
+
+---
+
+**Note**: Currently operates in manual mode. LinkedIn API integration requires approved developer access. The system is designed to be compliance-ready with rate limiting and exponential backoff for future API use.

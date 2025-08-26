@@ -1,0 +1,49 @@
+{
+  "id": "post_83b3996e",
+  "title": "Story: Latest Insights On Product",
+  "body": "I used to think Latest insights on product was simple. I was wrong.\n\nWe were struggling with Latest insights on product on our latest project. Despite having all the right tools and processes, something wasn't clicking.\n\nThen our team lead suggested a different approach. Instead of focusing on the technical details, we stepped back and asked: 'What outcome are we really trying to achieve?'\n\nThat simple shift in perspective changed everything.\n\nThe lesson: Latest insights on product isn't just about execution\u2014it's about clarity of purpose.\n\nWhen you're clear on the 'why,' the 'how' becomes much easier to figure out.\n\nShare your Latest insights on product experience in the comments.",
+  "tags": [
+    "insights",
+    "linkedin",
+    "product",
+    "latest",
+    "professional"
+  ],
+  "assets": [],
+  "cta": "What are your thoughts?",
+  "target_window": {
+    "day": "Tue",
+    "hour": 10
+  },
+  "source_snippets": [
+    {
+      "post_id": "post_bfabb302",
+      "reason": "semantic similarity"
+    }
+  ],
+  "format": "story",
+  "generated_at": "2025-08-19T11:16:22.553174",
+  "insights": {
+    "topic": "Latest insights on product",
+    "similar_posts_count": 1,
+    "recommendations": [
+      "You've covered similar ground before - consider a fresh angle",
+      "Consider using tags: professional, insights, latest"
+    ],
+    "common_tags": [
+      "professional",
+      "insights",
+      "latest",
+      "product",
+      "linkedin"
+    ],
+    "avg_similarity": 1.0,
+    "related_posts": [
+      {
+        "id": "post_bfabb302",
+        "title": "Story: Latest Insights On Product",
+        "similarity": 1.0
+      }
+    ]
+  }
+}

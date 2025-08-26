@@ -1,0 +1,93 @@
+{
+  "week_of": "2025-08-25",
+  "now": [
+    {
+      "topic": "Latest insights on product",
+      "priority": "high",
+      "target_window": {
+        "day": "Tue",
+        "hour": 10
+      }
+    },
+    {
+      "topic": "Key lessons from engineering",
+      "priority": "high",
+      "target_window": {
+        "day": "Thu",
+        "hour": 11
+      }
+    }
+  ],
+  "next": [
+    {
+      "topic": "Deep dive into engineering best practices",
+      "priority": "medium",
+      "target_window": {
+        "day": "Wed",
+        "hour": 14
+      }
+    }
+  ],
+  "later": [
+    {
+      "topic": "Personal story about product journey",
+      "priority": "low",
+      "experiment": "Test \u00b12h from optimal window"
+    },
+    {
+      "topic": "Personal story about engineering journey",
+      "priority": "low",
+      "experiment": "Test \u00b12h from optimal window"
+    },
+    {
+      "topic": "Personal story about founder journey",
+      "priority": "low",
+      "experiment": "Test \u00b12h from optimal window"
+    }
+  ],
+  "recommended_windows": [
+    {
+      "day": "Tue",
+      "hour": 10,
+      "engagement_score": 0.08,
+      "post_count": 5
+    },
+    {
+      "day": "Thu",
+      "hour": 11,
+      "engagement_score": 0.075,
+      "post_count": 3
+    },
+    {
+      "day": "Wed",
+      "hour": 14,
+      "engagement_score": 0.07,
+      "post_count": 4
+    },
+    {
+      "day": "Tue",
+      "hour": 15,
+      "engagement_score": 0.065,
+      "post_count": 2
+    },
+    {
+      "day": "Fri",
+      "hour": 12,
+      "engagement_score": 0.06,
+      "post_count": 3
+    }
+  ],
+  "generated_at": "2025-08-19T11:15:52.897449",
+  "suggestions": {
+    "timing": [
+      "Your best performing time is Tue at 10:00 (avg engagement: 8.00%)",
+      "Alternative high-performing slots: Thu 11:00"
+    ],
+    "topics": [
+      "Focus on your top topics: product, engineering for higher engagement"
+    ],
+    "experiments": [
+      "Test posting \u00b12 hours from your optimal windows to discover new high-engagement slots"
+    ]
+  }
+}
