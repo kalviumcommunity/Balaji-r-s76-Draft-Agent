@@ -351,3 +351,42 @@ The system is production-ready for manual LinkedIn content workflows and easily 
 
 ## Call to Action
 "If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
+
+# Video Script: Embeddings Explanation
+
+## Introduction
+"Hello everyone! Today, we’re exploring a fundamental concept in AI and machine learning called embeddings."
+
+## What are Embeddings?
+"Embeddings are numerical representations of data, such as text, that capture their semantic meaning in a multi-dimensional space. They allow us to compare and analyze data based on their contextual similarity."
+
+## Why are Embeddings Important?
+"Embeddings are crucial for tasks like semantic search, recommendation systems, and clustering. They enable machines to understand and process human language in a meaningful way."
+
+## How are Embeddings Computed?
+"Embeddings are computed using pre-trained models like Sentence Transformers. These models take input text and map it to a high-dimensional vector space, where semantically similar texts are closer to each other."
+
+## Implementation in Our Project
+"In this project, we’ve implemented an `EmbeddingGenerator` class that uses a pre-trained model to generate embeddings for text. Let me show you how it works."
+
+## Code Walkthrough
+"Here’s how the `EmbeddingGenerator` works:
+
+1. **Initialization**: We initialize the class with a pre-trained model, such as `all-MiniLM-L6-v2`.
+2. **Single Embedding**: The `generate_embedding` method generates an embedding for a single piece of text.
+3. **Batch Embeddings**: The `batch_generate_embeddings` method generates embeddings for a list of texts."
+
+## Example
+"For example, if we input the text 'AI in Marketing,' the model generates a vector that represents its semantic meaning. Similarly, we can generate embeddings for multiple texts in a batch."
+
+## Applications
+"In our project, embeddings are used to:
+1. Retrieve similar posts based on semantic similarity.
+2. Analyze and cluster content for better recommendations.
+3. Enhance the relevance of generated LinkedIn posts."
+
+## Conclusion
+"Embeddings are a cornerstone of modern AI applications. They bridge the gap between human language and machine understanding, enabling a wide range of intelligent systems. Thank you for watching, and I hope you found this explanation insightful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"

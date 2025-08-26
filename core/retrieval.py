@@ -12,6 +12,45 @@ from datetime import datetime
 import re
 
 
+class EmbeddingGenerator:
+    """
+    Utility class for generating embeddings using a pre-trained model.
+    """
+
+    def __init__(self, model_name: str = "all-MiniLM-L6-v2"):
+        """
+        Initialize the embedding generator with a pre-trained model.
+
+        Args:
+            model_name: Name of the pre-trained model to use for embeddings.
+        """
+        self.model = SentenceTransformer(model_name)
+
+    def generate_embedding(self, text: str) -> np.ndarray:
+        """
+        Generate an embedding for the given text.
+
+        Args:
+            text: Input text to generate the embedding for.
+
+        Returns:
+            Embedding as a numpy array.
+        """
+        return self.model.encode(text)
+
+    def batch_generate_embeddings(self, texts: list) -> np.ndarray:
+        """
+        Generate embeddings for a batch of texts.
+
+        Args:
+            texts: List of input texts to generate embeddings for.
+
+        Returns:
+            Array of embeddings.
+        """
+        return self.model.encode(texts)
+
+
 class PostRetriever:
     """
     Retrieves and ranks past posts for content grounding using semantic similarity.
@@ -29,7 +68,7 @@ class PostRetriever:
             model_name: Sentence transformer model for embeddings
         """
         self.posts_dir = posts_dir
-        self.model = SentenceTransformer(model_name)
+        self.embedding_generator = EmbeddingGenerator(model_name)
         self.posts = self._load_posts()
         self.embeddings = self._compute_embeddings()
     
@@ -67,7 +106,7 @@ class PostRetriever:
             combined_text = f"{title} {body}"
             texts.append(combined_text)
         
-        return self.model.encode(texts)
+        return self.embedding_generator.batch_generate_embeddings(texts)
     
     def retrieve_similar(self, query: str, top_k: int = 3, min_similarity: float = 0.3) -> List[Dict[str, Any]]:
         """
@@ -85,7 +124,7 @@ class PostRetriever:
             return []
         
         # Encode the query
-        query_embedding = self.model.encode([query])
+        query_embedding = self.embedding_generator.generate_embedding(query)
         
         # Calculate similarities
         similarities = np.dot(self.embeddings, query_embedding.T).flatten()
