@@ -165,3 +165,33 @@ The system is production-ready for manual LinkedIn content workflows and easily 
 
 ## Call to Action
 "If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
+
+# Video Script: One-Shot Prompting Explanation
+
+## Introduction
+"Hello everyone! Today, we’re exploring another powerful AI concept called one-shot prompting."
+
+## What is One-Shot Prompting?
+"One-shot prompting is a technique where we provide the AI model with a single example of the task we want it to perform. This example serves as a guide, helping the model understand the structure and style of the desired output."
+
+## Why is it Useful?
+"One-shot prompting is incredibly useful when you want the model to follow a specific format or tone. By providing just one example, you can significantly improve the quality and relevance of the generated content."
+
+## Implementation in Our Project
+"In this project, we’ve implemented one-shot prompting to generate LinkedIn posts. Let me show you how it works."
+
+## Code Walkthrough
+"We’ve created a utility class called `OneShotPrompting`. This class takes a pre-trained language model as input and uses it to generate LinkedIn posts. Here’s how it works:
+
+1. **Input**: You provide a topic, a format type (e.g., short, story, carousel), and an example post.
+2. **Prompt**: The class constructs a natural language prompt that includes the example post and a description of the task.
+3. **Output**: The model generates a professional and engaging LinkedIn post based on the input and the example."
+
+## Example
+"For example, if you want to generate a story-format post about 'AI in Marketing,' you can provide an example post like 'AI is transforming marketing by enabling personalized campaigns.' The model then creates a similar post tailored to the new topic."
+
+## Conclusion
+"One-shot prompting is a versatile tool for guiding AI models to produce high-quality, context-aware content. It’s a simple yet effective way to leverage the power of AI. Thank you for watching, and I hope you found this explanation insightful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"

@@ -444,7 +444,46 @@ class ZeroShotPrompting:
         response = self.model.generate(prompt)
         return response
 
+
+class OneShotPrompting:
+    """
+    Utility class for one-shot prompting to generate LinkedIn posts.
+    """
+
+    def __init__(self, model):
+        """
+        Initialize with a pre-trained language model.
+
+        Args:
+            model: Pre-trained language model (e.g., OpenAI GPT, Hugging Face model).
+        """
+        self.model = model
+
+    def generate_post(self, topic: str, format_type: str, example: str) -> str:
+        """
+        Generate a LinkedIn post using one-shot prompting.
+
+        Args:
+            topic: The topic for the post.
+            format_type: The format type (e.g., short, story, carousel).
+            example: An example post to guide the model.
+
+        Returns:
+            Generated post as a string.
+        """
+        prompt = (
+            f"You are an expert LinkedIn content creator. Here is an example of a {format_type} post:\n"
+            f"Example: {example}\n\n"
+            f"Now, generate a similar {format_type} post about '{topic}'.\n"
+            "Ensure the post is engaging, professional, and follows LinkedIn best practices."
+        )
+
+        # Simulate model response (replace with actual model call in production)
+        response = self.model.generate(prompt)
+        return response
+
 # Example usage (replace 'model' with an actual pre-trained model instance)
-# zero_shot = ZeroShotPrompting(model)
-# post = zero_shot.generate_post("AI in Marketing", "story")
+# one_shot = OneShotPrompting(model)
+# example_post = "AI is transforming marketing by enabling personalized campaigns."
+# post = one_shot.generate_post("AI in Marketing", "story", example_post)
 # print(post)
