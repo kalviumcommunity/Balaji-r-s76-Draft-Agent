@@ -284,3 +284,25 @@ class PostRetriever:
                 for post in similar_posts[:3]
             ]
         }
+
+def cosine_similarity(embedding_a: np.ndarray, embedding_b: np.ndarray) -> float:
+    """
+    Calculate the cosine similarity between two embeddings.
+
+    Args:
+        embedding_a: First embedding as a numpy array.
+        embedding_b: Second embedding as a numpy array.
+
+    Returns:
+        Cosine similarity score as a float.
+    """
+    dot_product = np.dot(embedding_a, embedding_b)
+    norm_a = np.linalg.norm(embedding_a)
+    norm_b = np.linalg.norm(embedding_b)
+    return dot_product / (norm_a * norm_b)
+
+# Example usage
+# embedding1 = np.array([1, 2, 3])
+# embedding2 = np.array([4, 5, 6])
+# similarity = cosine_similarity(embedding1, embedding2)
+# print(f"Cosine Similarity: {similarity}")
