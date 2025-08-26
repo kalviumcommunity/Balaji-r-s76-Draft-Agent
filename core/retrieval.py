@@ -301,8 +301,21 @@ def cosine_similarity(embedding_a: np.ndarray, embedding_b: np.ndarray) -> float
     norm_b = np.linalg.norm(embedding_b)
     return dot_product / (norm_a * norm_b)
 
+def dot_product_similarity(embedding_a: np.ndarray, embedding_b: np.ndarray) -> float:
+    """
+    Calculate the dot product similarity between two embeddings.
+
+    Args:
+        embedding_a: First embedding as a numpy array.
+        embedding_b: Second embedding as a numpy array.
+
+    Returns:
+        Dot product similarity score as a float.
+    """
+    return np.dot(embedding_a, embedding_b)
+
 # Example usage
 # embedding1 = np.array([1, 2, 3])
 # embedding2 = np.array([4, 5, 6])
-# similarity = cosine_similarity(embedding1, embedding2)
-# print(f"Cosine Similarity: {similarity}")
+# similarity = dot_product_similarity(embedding1, embedding2)
+# print(f"Dot Product Similarity: {similarity}")
