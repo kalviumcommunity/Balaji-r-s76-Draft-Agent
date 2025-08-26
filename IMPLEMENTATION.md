@@ -135,3 +135,33 @@ Plan   Post    Slot    Copy     Import  Timing
 - **Compliance-ready** - designed for future LinkedIn API integration
 
 The system is production-ready for manual LinkedIn content workflows and easily extensible for future API integration.
+
+# Video Script: Zero-Shot Prompting Explanation
+
+## Introduction
+"Hello everyone! Today, we are diving into the fascinating world of AI and exploring a concept called zero-shot prompting."
+
+## What is Zero-Shot Prompting?
+"Zero-shot prompting is a technique where we ask an AI model to perform a task without providing any prior examples or fine-tuning. Instead, we describe the task in natural language, and the model generates a response based on its pre-trained knowledge."
+
+## Why is it Useful?
+"This approach is incredibly powerful because it allows us to leverage the vast knowledge of pre-trained models without the need for additional training data. It’s like having an expert who can answer your questions or perform tasks just by understanding your instructions."
+
+## Implementation in Our Project
+"In this project, we’ve implemented zero-shot prompting to generate LinkedIn posts. Let me show you how it works."
+
+## Code Walkthrough
+"We’ve created a utility class called `ZeroShotPrompting`. This class takes a pre-trained language model as input and uses it to generate LinkedIn posts. Here’s how it works:
+
+1. **Input**: You provide a topic and a format type (e.g., short, story, carousel).
+2. **Prompt**: The class constructs a natural language prompt describing the task.
+3. **Output**: The model generates a professional and engaging LinkedIn post based on the input."
+
+## Example
+"For example, if you want to generate a story-format post about 'AI in Marketing,' you simply call the `generate_post` method with these inputs. The model then creates a well-structured post that you can use directly."
+
+## Conclusion
+"Zero-shot prompting is a game-changer in AI applications. It simplifies the process of generating high-quality content and opens up endless possibilities for innovation. Thank you for watching, and I hope you found this explanation helpful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
