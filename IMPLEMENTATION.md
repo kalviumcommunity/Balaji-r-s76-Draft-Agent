@@ -390,3 +390,40 @@ The system is production-ready for manual LinkedIn content workflows and easily 
 
 ## Call to Action
 "If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
+
+# Video Script: Evaluation Pipeline Explanation
+
+## Introduction
+"Hello everyone! Today, we’re exploring how to evaluate AI models using an evaluation pipeline."
+
+## What is an Evaluation Pipeline?
+"An evaluation pipeline is a systematic way to test AI models by comparing their outputs against expected results. It ensures that the model performs as intended and meets quality standards."
+
+## Parameters Considered for the Judge Prompt
+"While designing the judge prompt, we considered the following parameters:
+1. **Accuracy**: Does the model output match the expected result exactly?
+2. **Relevance**: Is the output contextually appropriate for the input?
+3. **Consistency**: Does the model produce consistent results across similar inputs?"
+
+## Implementation in Our Project
+"In this project, we’ve implemented an evaluation pipeline with the following components:
+1. **Dataset**: A JSON file containing test cases with inputs and expected outputs.
+2. **Judge Prompt**: A function to compare model outputs with expected results and return a judgment (Pass/Fail).
+3. **Testing Framework**: A framework to run all test cases and generate a detailed report."
+
+## Code Walkthrough
+"Here’s how the evaluation pipeline works:
+
+1. **Dataset Loading**: The pipeline loads test cases from a JSON file.
+2. **Model Simulation**: For each test case, the pipeline simulates a model output (or calls the actual model).
+3. **Judgment**: The judge prompt compares the model output with the expected result and returns a Pass/Fail judgment.
+4. **Results**: The pipeline generates a report with inputs, expected outputs, model outputs, and judgments."
+
+## Example
+"For example, if the input is 'Hello, world!' and the expected output is '!dlrow ,olleH', the pipeline checks if the model output matches the expected result. If it does, the test passes; otherwise, it fails."
+
+## Conclusion
+"An evaluation pipeline is essential for ensuring the reliability and quality of AI models. It provides a structured way to identify and address issues, making your models more robust and trustworthy. Thank you for watching, and I hope you found this explanation insightful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"

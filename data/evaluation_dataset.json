@@ -1,0 +1,22 @@
+[
+  {
+    "input": "Hello, world!",
+    "expected_output": "!dlrow ,olleH"
+  },
+  {
+    "input": "AI is transforming industries.",
+    "expected_output": ".seirtsudni gnimrofsnart si IA"
+  },
+  {
+    "input": "Data-driven insights are key.",
+    "expected_output": ".yek era sthgisni nevird-ataD"
+  },
+  {
+    "input": "Machine learning is fascinating.",
+    "expected_output": ".gnitanicsaf si gninrael enihcaM"
+  },
+  {
+    "input": "Natural language processing is powerful.",
+    "expected_output": ".lufrewop si gnissecorp egaugnal larutaN"
+  }
+]
