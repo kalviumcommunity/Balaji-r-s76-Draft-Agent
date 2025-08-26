@@ -408,3 +408,43 @@ class ContentGenerator:
         topic_title = ' '.join(word.capitalize() for word in topic.split())
         
         return f"{prefix} {topic_title}".strip()
+
+
+class ZeroShotPrompting:
+    """
+    Utility class for zero-shot prompting to generate LinkedIn posts.
+    """
+
+    def __init__(self, model):
+        """
+        Initialize with a pre-trained language model.
+
+        Args:
+            model: Pre-trained language model (e.g., OpenAI GPT, Hugging Face model).
+        """
+        self.model = model
+
+    def generate_post(self, topic: str, format_type: str) -> str:
+        """
+        Generate a LinkedIn post using zero-shot prompting.
+
+        Args:
+            topic: The topic for the post.
+            format_type: The format type (e.g., short, story, carousel).
+
+        Returns:
+            Generated post as a string.
+        """
+        prompt = (
+            f"You are an expert LinkedIn content creator. Generate a {format_type} post about '{topic}'.\n"
+            "Ensure the post is engaging, professional, and follows LinkedIn best practices."
+        )
+
+        # Simulate model response (replace with actual model call in production)
+        response = self.model.generate(prompt)
+        return response
+
+# Example usage (replace 'model' with an actual pre-trained model instance)
+# zero_shot = ZeroShotPrompting(model)
+# post = zero_shot.generate_post("AI in Marketing", "story")
+# print(post)
