@@ -1,0 +1,22 @@
+[
+  {
+    "post_id": "sample_1",
+    "impressions": 1500,
+    "reactions": 120,
+    "comments": 25,
+    "shares": 8,
+    "clicks": 45,
+    "published_at": "2025-08-10T10:00:00Z",
+    "engagement_rate": 0.102
+  },
+  {
+    "post_id": "sample_2",
+    "impressions": 2200,
+    "reactions": 180,
+    "comments": 40,
+    "shares": 15,
+    "clicks": 75,
+    "published_at": "2025-08-12T14:00:00Z",
+    "engagement_rate": 0.107
+  }
+]
