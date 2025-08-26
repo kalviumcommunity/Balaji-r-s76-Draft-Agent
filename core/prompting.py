@@ -482,8 +482,50 @@ class OneShotPrompting:
         response = self.model.generate(prompt)
         return response
 
+
+class MultiShotPrompting:
+    """
+    Utility class for multi-shot prompting to generate LinkedIn posts.
+    """
+
+    def __init__(self, model):
+        """
+        Initialize with a pre-trained language model.
+
+        Args:
+            model: Pre-trained language model (e.g., OpenAI GPT, Hugging Face model).
+        """
+        self.model = model
+
+    def generate_post(self, topic: str, format_type: str, examples: List[str]) -> str:
+        """
+        Generate a LinkedIn post using multi-shot prompting.
+
+        Args:
+            topic: The topic for the post.
+            format_type: The format type (e.g., short, story, carousel).
+            examples: A list of example posts to guide the model.
+
+        Returns:
+            Generated post as a string.
+        """
+        examples_text = "\n\n".join([f"Example {i+1}: {example}" for i, example in enumerate(examples)])
+        prompt = (
+            f"You are an expert LinkedIn content creator. Here are some examples of {format_type} posts:\n"
+            f"{examples_text}\n\n"
+            f"Now, generate a similar {format_type} post about '{topic}'.\n"
+            "Ensure the post is engaging, professional, and follows LinkedIn best practices."
+        )
+
+        # Simulate model response (replace with actual model call in production)
+        response = self.model.generate(prompt)
+        return response
+
 # Example usage (replace 'model' with an actual pre-trained model instance)
-# one_shot = OneShotPrompting(model)
-# example_post = "AI is transforming marketing by enabling personalized campaigns."
-# post = one_shot.generate_post("AI in Marketing", "story", example_post)
+# multi_shot = MultiShotPrompting(model)
+# example_posts = [
+#     "AI is transforming marketing by enabling personalized campaigns.",
+#     "Data-driven insights are the key to successful marketing strategies."
+# ]
+# post = multi_shot.generate_post("AI in Marketing", "story", example_posts)
 # print(post)
