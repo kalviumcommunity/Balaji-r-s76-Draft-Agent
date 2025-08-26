@@ -321,3 +321,33 @@ The system is production-ready for manual LinkedIn content workflows and easily 
 
 ## Call to Action
 "If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
+
+# Video Script: Dynamic Prompting Explanation
+
+## Introduction
+"Hello everyone! Today, we’re exploring an advanced AI concept called dynamic prompting."
+
+## What is Dynamic Prompting?
+"Dynamic prompting is a technique where the AI model adapts its response based on user preferences or contextual information. This allows for highly customized and relevant outputs tailored to specific needs."
+
+## Why is it Useful?
+"Dynamic prompting is incredibly useful for creating personalized content. By incorporating user preferences such as tone and style, we can generate outputs that align closely with the user’s expectations."
+
+## Implementation in Our Project
+"In this project, we’ve implemented dynamic prompting to generate LinkedIn posts. Let me show you how it works."
+
+## Code Walkthrough
+"We’ve created a utility class called `DynamicPrompting`. This class takes a pre-trained language model as input and uses it to generate LinkedIn posts. Here’s how it works:
+
+1. **Input**: You provide a topic, a format type (e.g., short, story, carousel), and user preferences (e.g., tone, style).
+2. **Prompt**: The class constructs a natural language prompt that incorporates the user preferences.
+3. **Output**: The model generates a professional and engaging LinkedIn post based on the input and preferences."
+
+## Example
+"For example, if you want to generate a story-format post about 'AI in Marketing' with a conversational tone and storytelling style, you simply provide these preferences. The model then creates a post that matches these criteria."
+
+## Conclusion
+"Dynamic prompting is a powerful tool for creating personalized and context-aware content. It’s an excellent way to leverage the power of AI for tasks that require adaptability and customization. Thank you for watching, and I hope you found this explanation insightful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
