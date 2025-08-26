@@ -521,11 +521,46 @@ class MultiShotPrompting:
         response = self.model.generate(prompt)
         return response
 
+
+class ChainOfThoughtPrompting:
+    """
+    Utility class for chain-of-thought prompting to generate LinkedIn posts.
+    """
+
+    def __init__(self, model):
+        """
+        Initialize with a pre-trained language model.
+
+        Args:
+            model: Pre-trained language model (e.g., OpenAI GPT, Hugging Face model).
+        """
+        self.model = model
+
+    def generate_post(self, topic: str, format_type: str) -> str:
+        """
+        Generate a LinkedIn post using chain-of-thought prompting.
+
+        Args:
+            topic: The topic for the post.
+            format_type: The format type (e.g., short, story, carousel).
+
+        Returns:
+            Generated post as a string.
+        """
+        prompt = (
+            f"You are an expert LinkedIn content creator. Let's think step by step to create a {format_type} post about '{topic}'.\n"
+            "Step 1: Identify the key message or insight about the topic.\n"
+            "Step 2: Develop an engaging hook to capture attention.\n"
+            "Step 3: Expand on the key message with supporting details or examples.\n"
+            "Step 4: Conclude with a clear call-to-action.\n"
+            "Now, generate the complete post following these steps."
+        )
+
+        # Simulate model response (replace with actual model call in production)
+        response = self.model.generate(prompt)
+        return response
+
 # Example usage (replace 'model' with an actual pre-trained model instance)
-# multi_shot = MultiShotPrompting(model)
-# example_posts = [
-#     "AI is transforming marketing by enabling personalized campaigns.",
-#     "Data-driven insights are the key to successful marketing strategies."
-# ]
-# post = multi_shot.generate_post("AI in Marketing", "story", example_posts)
+# chain_of_thought = ChainOfThoughtPrompting(model)
+# post = chain_of_thought.generate_post("AI in Marketing", "story")
 # print(post)

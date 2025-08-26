@@ -225,3 +225,33 @@ The system is production-ready for manual LinkedIn content workflows and easily 
 
 ## Call to Action
 "If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
+
+# Video Script: Chain-of-Thought Prompting Explanation
+
+## Introduction
+"Hello everyone! Today, we’re exploring an advanced AI concept called chain-of-thought prompting."
+
+## What is Chain-of-Thought Prompting?
+"Chain-of-thought prompting is a technique where we guide the AI model to think step by step. By breaking down the task into smaller logical steps, the model can generate more coherent and structured responses."
+
+## Why is it Useful?
+"This approach is particularly useful for complex tasks that require reasoning or multi-step problem-solving. It ensures that the output is well-thought-out and follows a logical flow."
+
+## Implementation in Our Project
+"In this project, we’ve implemented chain-of-thought prompting to generate LinkedIn posts. Let me show you how it works."
+
+## Code Walkthrough
+"We’ve created a utility class called `ChainOfThoughtPrompting`. This class takes a pre-trained language model as input and uses it to generate LinkedIn posts. Here’s how it works:
+
+1. **Input**: You provide a topic and a format type (e.g., short, story, carousel).
+2. **Prompt**: The class constructs a step-by-step prompt that guides the model through the process of creating the post.
+3. **Output**: The model generates a professional and engaging LinkedIn post based on the input and the logical steps."
+
+## Example
+"For example, if you want to generate a story-format post about 'AI in Marketing,' the model will first identify the key message, then create a hook, expand on the message with examples, and finally conclude with a call-to-action."
+
+## Conclusion
+"Chain-of-thought prompting is a powerful tool for guiding AI models to produce high-quality, structured content. It’s an excellent way to leverage the power of AI for tasks that require logical reasoning. Thank you for watching, and I hope you found this explanation insightful!"
+
+## Call to Action
+"If you have any questions or want to learn more, feel free to reach out. Don’t forget to like, share, and subscribe for more AI insights!"
